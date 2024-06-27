@@ -140,7 +140,7 @@ services:
       - pinpoint
 
   pinot-controller:
-    image: apachepinot/pinot:latest
+    image: apachepinot/pinot:1.1.0-11-amazoncorretto
     restart: unless-stopped
     command: StartController -zkAddress pinot-zoo
     depends_on:
@@ -155,7 +155,7 @@ services:
       - pinot-controller-volume:/tmp/data/controller
 
   pinot-broker-0:
-    image: apachepinot/pinot:latest
+    image: apachepinot/pinot:1.1.0-11-amazoncorretto
     restart: unless-stopped
     command: StartBroker -zkAddress pinot-zoo
     depends_on:
@@ -166,7 +166,7 @@ services:
       - pinpoint
 
   pinot-server-0:
-    image: apachepinot/pinot:latest
+    image: apachepinot/pinot:1.1.0-11-amazoncorretto
     restart: unless-stopped
     command: StartServer -zkAddress pinot-zoo
     depends_on:
@@ -179,7 +179,7 @@ services:
       - pinot-server-volume:/tmp/data/server
 
   pinot-init:
-    image: apachepinot/pinot:latest
+    image: apachepinot/pinot:1.1.0-11-amazoncorretto
     restart: "no"
     entrypoint: >
       sh -c "
